@@ -18,12 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Close mobile menu on link click
-    const links = document.querySelectorAll('.nav-links a');
-    links.forEach(link => {
+    document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            if(icon) {
+            const icon = mobileMenuBtn ? mobileMenuBtn.querySelector('i') : null;
+            if (icon) {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
@@ -34,20 +33,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(18, 18, 18, 0.95)';
+            navbar.style.background = 'rgba(14, 14, 14, 0.95)';
             navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
         } else {
-            navbar.style.background = 'rgba(18, 18, 18, 0.8)';
-            navbar.style.boxShadow = 'none';
+            navbar.style.background = 'rgba(14, 14, 14, 0.75)';
+            navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.4)';
         }
     });
 
-    // Scroll reveal animation for service cards
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
+    // Scroll reveal for service cards
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -56,106 +50,242 @@ document.addEventListener('DOMContentLoaded', () => {
                 observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    const cards = document.querySelectorAll('.service-card');
-    cards.forEach((card, index) => {
+    document.querySelectorAll('.service-card').forEach((card, i) => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(30px)';
-        card.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
+        card.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${i * 0.1}s`;
         observer.observe(card);
     });
 
     // =====================
-    // CAROUSEL (3-card view: prev | ACTIVE | next)
+    // CAROUSEL — Infinite Loop & Left-aligned
     // =====================
     const carouselTrack = document.getElementById('carouselTrack');
-    const carouselDots  = document.getElementById('carouselDots');
-    const prevCarousel  = document.getElementById('carouselPrev');
-    const nextCarousel  = document.getElementById('carouselNext');
+    const carouselDots = document.getElementById('carouselDots');
+    const carouselCounter = document.getElementById('carouselCounter');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
 
     if (carouselTrack) {
-        const items = Array.from(carouselTrack.querySelectorAll('.carousel-item'));
-        const total = items.length;
-        let current = 0;
+        let originalItems = Array.from(carouselTrack.querySelectorAll('.carousel-item'));
+        let realTotal = originalItems.length;
+        
+        // Clone items for infinite loop (clone all items twice to be safe)
+        originalItems.forEach(item => {
+            let clone = item.cloneNode(true);
+            clone.classList.add('clone');
+            carouselTrack.appendChild(clone);
+        });
+        
+        const allItems = Array.from(carouselTrack.querySelectorAll('.carousel-item'));
+        const total = allItems.length;
+        let current = 0; // The leftmost visible item index
+        let isDragging = false;
+        let dragStartX = 0;
+        let dragCurrentX = 0;
+        let dragOffset = 0;
 
-        // Build dots
-        items.forEach((_, i) => {
+        // Build dots (only for realTotal)
+        originalItems.forEach((_, i) => {
             const dot = document.createElement('button');
             dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', `Zdjęcie ${i + 1}`);
             dot.addEventListener('click', () => goTo(i));
             carouselDots.appendChild(dot);
         });
 
-        function updateClasses() {
-            const prev = (current - 1 + total) % total;
-            const next = (current + 1) % total;
-            items.forEach((item, i) => {
-                item.classList.remove('active', 'side');
-                if (i === current) item.classList.add('active');
-                else if (i === prev || i === next) item.classList.add('side');
+        function getItemWidth() {
+            return allItems[0].offsetWidth;
+        }
+
+        function updateUI() {
+            let realCurrent = ((current % realTotal) + realTotal) % realTotal;
+            allItems.forEach((item, i) => {
+                item.classList.remove('active', 'side', 'side-left', 'side-right');
+                if (i === current) {
+                    item.classList.add('active');
+                } else if (i === current - 1) {
+                    item.classList.add('side', 'side-left');
+                } else if (i === current + 1) {
+                    item.classList.add('side', 'side-right');
+                }
             });
             document.querySelectorAll('.carousel-dot').forEach((d, i) => {
-                d.classList.toggle('active', i === current);
+                d.classList.toggle('active', i === realCurrent);
             });
+            if (carouselCounter) {
+                carouselCounter.textContent = `${realCurrent + 1} / ${realTotal}`;
+            }
         }
 
-        function goTo(idx) {
-            current = (idx + total) % total;
-            // Offset so current is centered: shift = current - 1 items
-            const itemWidth = carouselTrack.parentElement.offsetWidth * 0.5; // 50% width per item
-            const offset = current * itemWidth - (carouselTrack.parentElement.offsetWidth / 2) + (itemWidth / 2);
+        function getContainerWidth() {
+            return carouselTrack.parentElement.offsetWidth;
+        }
+
+        function setPosition(extraOffset) {
+            const itemW = getItemWidth();
+            const containerW = getContainerWidth();
+            // Center the active item
+            let offset = current * itemW - (containerW - itemW) / 2;
+            offset -= (extraOffset || 0);
             carouselTrack.style.transform = `translateX(${-offset}px)`;
-            updateClasses();
         }
 
-        // Use pixel-based centering with percentage items
-        function goToByPercent(idx) {
-            current = (idx + total) % total;
-            // We want the current item centered. Each item is 50% width.
-            // Center of container = 50%, center of current item = current*50% + 25%
-            // Translate needed: center of current item - center of container
-            // = current*50% + 25% - 50% = (current - 0.5)*50%
-            const translatePercent = (current - 0.5) * 50;
-            carouselTrack.style.transform = `translateX(calc(-${translatePercent}%))`;
-            updateClasses();
+        function goTo(idx, animate = true) {
+            if (animate) {
+                carouselTrack.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            } else {
+                carouselTrack.style.transition = 'none';
+            }
+            
+            current = idx;
+            setPosition();
+            updateUI();
+
+            // Infinite snap logic:
+            if (animate && current >= realTotal) {
+                setTimeout(() => {
+                    carouselTrack.style.transition = 'none';
+                    current = current % realTotal;
+                    setPosition();
+                    updateUI();
+                    void carouselTrack.offsetWidth;
+                }, 500);
+            } else if (animate && current < 0) {
+                setTimeout(() => {
+                    carouselTrack.style.transition = 'none';
+                    current = realTotal + (current % realTotal);
+                    setPosition();
+                    updateUI();
+                    void carouselTrack.offsetWidth;
+                }, 500);
+            } else if (!animate) {
+                if (current >= realTotal) current = current % realTotal;
+                else if (current < 0) current = realTotal + (current % realTotal);
+                setPosition();
+                updateUI();
+            }
         }
 
-        goToByPercent(0);
+        goTo(0, false);
 
-        prevCarousel.addEventListener('click', () => goToByPercent(current - 1));
-        nextCarousel.addEventListener('click', () => goToByPercent(current + 1));
+        prevBtn.addEventListener('click', () => {
+            if (current <= 0) {
+                carouselTrack.style.transition = 'none';
+                current = realTotal;
+                setPosition();
+                void carouselTrack.offsetWidth;
+            }
+            goTo(current - 1);
+        });
 
-        // Side card click = navigate to that card
-        items.forEach((item, i) => {
-            item.addEventListener('click', () => {
-                if (item.classList.contains('side')) {
-                    goToByPercent(i);
-                }
+        nextBtn.addEventListener('click', () => goTo(current + 1));
+
+        // Click handler
+        allItems.forEach((item, i) => {
+            item.addEventListener('click', (e) => {
+                if (isDragging) return;
+                let realIndex = i % realTotal;
+                openLightbox(realIndex);
             });
         });
 
+        // ---- DRAG / SWIPE SUPPORT ----
+        function onDragStart(x) {
+            isDragging = false;
+            dragStartX = x;
+            dragCurrentX = x;
+            dragOffset = 0;
+            carouselTrack.style.transition = 'none';
+            carouselTrack.classList.add('dragging');
+        }
+
+        function onDragMove(x) {
+            dragCurrentX = x;
+            dragOffset = dragCurrentX - dragStartX;
+            if (Math.abs(dragOffset) > 5) isDragging = true;
+            setPosition(-dragOffset);
+        }
+
+        function onDragEnd() {
+            carouselTrack.classList.remove('dragging');
+            const threshold = getItemWidth() * 0.2;
+            if (dragOffset < -threshold) {
+                goTo(current + 1);
+            } else if (dragOffset > threshold) {
+                if (current <= 0) {
+                    carouselTrack.style.transition = 'none';
+                    current = realTotal;
+                    setPosition();
+                    void carouselTrack.offsetWidth;
+                }
+                goTo(current - 1);
+            } else {
+                goTo(current);
+            }
+            setTimeout(() => { isDragging = false; }, 50);
+        }
+
+        carouselTrack.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            onDragStart(e.clientX);
+            const onMove = (ev) => onDragMove(ev.clientX);
+            const onUp = () => {
+                document.removeEventListener('mousemove', onMove);
+                document.removeEventListener('mouseup', onUp);
+                onDragEnd();
+            };
+            document.addEventListener('mousemove', onMove);
+            document.addEventListener('mouseup', onUp);
+        });
+
+        carouselTrack.addEventListener('touchstart', (e) => {
+            onDragStart(e.touches[0].clientX);
+        }, { passive: true });
+        carouselTrack.addEventListener('touchmove', (e) => {
+            onDragMove(e.touches[0].clientX);
+        }, { passive: true });
+        carouselTrack.addEventListener('touchend', () => {
+            onDragEnd();
+        }, { passive: true });
+
         // Auto-play
-        let timer = setInterval(() => goToByPercent(current + 1), 5000);
-        carouselTrack.parentElement.addEventListener('mouseenter', () => clearInterval(timer));
-        carouselTrack.parentElement.addEventListener('mouseleave', () => {
-            timer = setInterval(() => goToByPercent(current + 1), 5000);
+        let timer = setInterval(() => {
+            goTo(current + 1);
+        }, 3500);
+        const root = carouselTrack.parentElement;
+        root.addEventListener('mouseenter', () => clearInterval(timer));
+        root.addEventListener('mouseleave', () => {
+            timer = setInterval(() => {
+                goTo(current + 1);
+            }, 3500);
+        });
+
+        // Resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => goTo(current, false), 100);
         });
 
         // Keyboard
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft' && !document.getElementById('lightbox').classList.contains('open')) prevCarousel.click();
-            if (e.key === 'ArrowRight' && !document.getElementById('lightbox').classList.contains('open')) nextCarousel.click();
+            const lb = document.getElementById('lightbox');
+            if (lb && lb.classList.contains('open')) return;
+            if (e.key === 'ArrowLeft') prevBtn.click();
+            if (e.key === 'ArrowRight') nextBtn.click();
         });
 
         // =====================
         // LIGHTBOX
         // =====================
-        const lightbox        = document.getElementById('lightbox');
-        const lightboxImg     = document.getElementById('lightboxImg');
-        const lightboxClose   = document.getElementById('lightboxClose');
-        const lightboxPrev    = document.getElementById('lightboxPrev');
-        const lightboxNext    = document.getElementById('lightboxNext');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
         const lightboxCounter = document.getElementById('lightboxCounter');
         let lbIndex = 0;
 
@@ -174,23 +304,20 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = '';
         }
 
-        // Only active card opens lightbox
-        items.forEach((item, i) => {
-            item.addEventListener('click', () => {
-                if (item.classList.contains('active')) openLightbox(i);
-            });
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
         });
 
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-
-        lightboxPrev.addEventListener('click', () => {
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
             lbIndex = (lbIndex - 1 + imgSrcs.length) % imgSrcs.length;
             lightboxImg.src = imgSrcs[lbIndex];
             lightboxCounter.textContent = `${lbIndex + 1} / ${imgSrcs.length}`;
         });
 
-        lightboxNext.addEventListener('click', () => {
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
             lbIndex = (lbIndex + 1) % imgSrcs.length;
             lightboxImg.src = imgSrcs[lbIndex];
             lightboxCounter.textContent = `${lbIndex + 1} / ${imgSrcs.length}`;
@@ -203,7 +330,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.key === 'ArrowRight') lightboxNext.click();
         });
     }
-
 
     // =====================
     // SCROLL REVEAL
@@ -219,29 +345,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
-    document.querySelectorAll('.section-title h2, .section-title p').forEach((el, i) => {
+    document.querySelectorAll('.section-title h2, .section-title p, .section-title .underline').forEach((el, i) => {
         el.classList.add('reveal-el');
-        el.dataset.delay = i * 80;
+        el.dataset.delay = i * 60;
         revealObserver.observe(el);
     });
 
-    document.querySelectorAll('.news-card').forEach((card, i) => {
-        card.classList.add('reveal-el');
-        card.dataset.delay = i * 100;
-        revealObserver.observe(card);
-    });
-
-    document.querySelectorAll('.value-item').forEach((item, i) => {
-        item.classList.add('reveal-el');
-        item.dataset.delay = i * 90;
-        revealObserver.observe(item);
-    });
-
-    document.querySelectorAll('.info-item').forEach((item, i) => {
+    document.querySelectorAll('.value-item, .info-item, .fb-cta-card, .fb-widget-wrapper, .contact-info-card, .contact-main-card, .step-item, .contact-promise').forEach((item, i) => {
         item.classList.add('reveal-el');
         item.dataset.delay = i * 80;
         revealObserver.observe(item);
     });
-
-
 });

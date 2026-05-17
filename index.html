@@ -7,7 +7,13 @@
     <title>MALKO BRUK | Profesjonalne Usługi Brukarskie i Odwodnieniowe</title>
     <meta name="description"
         content="Firma MALKO BRUK oferuje kompleksowe usługi brukarskie, układanie kostki, odwodnienia terenu i prace ziemne. Zaufaj profesjonalistom.">
-    <link rel="stylesheet" href="style.css">
+    <meta property="og:title" content="MALKO BRUK | Profesjonalne Usługi Brukarskie i Odwodnieniowe">
+    <meta property="og:description"
+        content="Kompleksowe usługi brukarskie, układanie kostki, odwodnienia terenu. Działamy na Śląsku i w Małopolsce.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="malko.png">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css?v=4">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
@@ -15,7 +21,6 @@
 </head>
 
 <body>
-
 
     <nav class="navbar">
         <div class="container nav-container">
@@ -40,108 +45,165 @@
         </div>
     </nav>
 
+    <!-- HERO -->
     <header class="hero bg-alt">
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <h1>Solidne fundamenty,<br><span class="highlight">perfekcyjne wykonanie.</span></h1>
-            <p class="hero-description">Profesjonalne układanie kostki brukowej oraz kompleksowe systemy odwodnień.
-                Tworzymy trwałe nawierzchnie i rozwiązania, które łączą nowoczesny design z niezawodną funkcjonalnością.
-            </p>
+            <div class="hero-badge">
+                <i class="fas fa-map-marker-alt"></i> Śląskie & Małopolskie
+            </div>
+            <h1>Profesjonalne usługi<br><span class="highlight">brukarskie i odwodnieniowe</span></h1>
+            <p class="hero-description">Układamy kostki brukowe, projektujemy systemy odwodnień i montujemy bramy —
+                solidnie, terminowo i z gwarancją jakości. Postaw na bezkompromisową jakość i profesjonalizm.</p>
             <div class="hero-buttons">
-                <a href="#kontakt" class="btn-primary btn-large">Darmowa wycena</a>
-                <a href="#uslugi" class="btn-secondary btn-large">Nasza oferta</a>
+                <a href="#kontakt" class="btn-primary btn-large"><i class="fas fa-phone-alt"></i> Bezpłatna wycena</a>
+                <a href="#realizacje" class="btn-secondary btn-large"><i class="fas fa-images"></i> Zobacz
+                    realizacje</a>
+            </div>
+            <div class="hero-trust">
+                <div class="trust-item"><i class="fas fa-check-circle"></i> Bezpłatna wycena</div>
+                <div class="trust-item"><i class="fas fa-check-circle"></i> Gwarancja na prace</div>
+                <div class="trust-item"><i class="fas fa-check-circle"></i> Terminowość</div>
             </div>
         </div>
     </header>
 
+    <!-- USŁUGI — clear offerings, pain-point focus, how it works, CTA -->
     <section id="uslugi" class="services section-pattern-reveal section-padding">
         <div class="container">
             <div class="section-title">
-                <h2>Nasze Usługi</h2>
+                <h2>Co robimy?</h2>
                 <div class="underline"></div>
-                <p>Kompleksowa obsługa brukarsko-instalacyjna na terenie śląska i małopolski</p>
+                <p>Kompleksowe rozwiązania dla Twojej posesji — od projektu po realizację</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-border-all"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-border-all"></i></div>
                     <h3>Kostka Brukowa</h3>
-                    <p>Profesjonalne układanie kostki brukowej i granitowej. Podjazdy, tarasy, chodniki i ścieżki ogrodowe z najwyższą starannosćią.</p>
+                    <p class="service-pain">Zniszczony podjazd lub błotnisty chodnik? Zamienimy go w trwałą, elegancką
+                        nawierzchnię.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Podjazdy, tarasy i ścieżki</li>
+                        <li><i class="fas fa-check"></i> Kostka brukowa i granitowa</li>
+                        <li><i class="fas fa-check"></i> Gwarancja trwałości</li>
+                    </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-water"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-water"></i></div>
                     <h3>Systemy Odwodnień</h3>
-                    <p>Profesjonalne systemy odwadniające, drenaże opaskowe i liniowe. Chronimy Twoją posesję przed wodą deszczową i gruntową.</p>
+                    <p class="service-pain">Woda zalewa Twoją działkę po deszczu? Zaprojektujemy i zamontujemy skuteczny
+                        drenaż.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Drenaże opaskowe i liniowe</li>
+                        <li><i class="fas fa-check"></i> Odwodnienia podjazdów</li>
+                        <li><i class="fas fa-check"></i> Ochrona fundamentów</li>
+                    </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-droplet"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-droplet"></i></div>
                     <h3>Zbiorniki na Deszczówkę</h3>
-                    <p>Profesjonalny montaż zbiorników retencyjnych. Ekologiczne rozwiązania do gromadzenia i ponownego wykorzystania wody opadowej.</p>
+                    <p class="service-pain">Chcesz zaoszczędzić na wodzie? Montujemy zbiorniki retencyjne do zbierania
+                        deszczówki.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Montaż podziemny i nadziemny</li>
+                        <li><i class="fas fa-check"></i> Ekologiczne rozwiązania</li>
+                        <li><i class="fas fa-check"></i> Ponowne użycie wody</li>
+                    </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-halved"></i>
-                    </div>
+                    <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
                     <h3>Bramy i Ogrodzenia</h3>
-                    <p>Kompleksowy montaż oraz serwis bram i ogrodzeń. Pełna automatyka i solidne wykonanie systemów zabezpieczających posesję.</p>
+                    <p class="service-pain">Stare ogrodzenie nie chroni posesji? Zamontujemy nowe bramy i ogrodzenia z
+                        automatyką.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Bramy przesuwne i skrzydłowe</li>
+                        <li><i class="fas fa-check"></i> Ogrodzenia panelowe</li>
+                        <li><i class="fas fa-check"></i> Pełna automatyka</li>
+                    </ul>
                 </div>
+            </div>
+
+            <!-- How it works -->
+            <div class="how-it-works">
+                <h3>Jak wygląda współpraca?</h3>
+                <div class="steps-row">
+                    <div class="step-item">
+                        <div class="step-num">1</div>
+                        <h4>Kontakt</h4>
+                        <p>Zadzwoń lub napisz — umówimy się na bezpłatne oględziny.</p>
+                    </div>
+                    <div class="step-connector"><i class="fas fa-chevron-right"></i></div>
+                    <div class="step-item">
+                        <div class="step-num">2</div>
+                        <h4>Wycena</h4>
+                        <p>Przyjeżdżamy, mierzymy i przygotowujemy szczegółową ofertę.</p>
+                    </div>
+                    <div class="step-connector"><i class="fas fa-chevron-right"></i></div>
+                    <div class="step-item">
+                        <div class="step-num">3</div>
+                        <h4>Realizacja</h4>
+                        <p>Wykonujemy prace terminowo, z gwarancją jakości.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services-cta">
+                <p>Nie wiesz, czego dokładnie potrzebujesz? <strong>Dojedziemy, ocenimy i doradzimy — za darmo.</strong>
+                </p>
+                <a href="#kontakt" class="btn-primary btn-large"><i class="fas fa-phone-alt"></i> Umów bezpłatną
+                    wycenę</a>
             </div>
         </div>
     </section>
 
+    <!-- REALIZACJE -->
     <section id="realizacje" class="realizations bg-alt section-padding">
         <div class="container">
             <div class="section-title">
                 <h2>Nasze Realizacje</h2>
                 <div class="underline"></div>
-                <p>Zobacz efekty naszych prac – od podjazdów po kompleksowe systemy odwodnień</p>
+                <p>Zobacz efekty naszych prac — od podjazdów po kompleksowe systemy odwodnień</p>
             </div>
         </div>
 
-        <!-- Carousel -->
-        <div class="carousel-root">
+        <div class="carousel-root" id="carouselRoot">
             <div class="carousel-track" id="carouselTrack">
                 <div class="carousel-item" data-index="0">
-                    <img src="realizacja.jpg" alt="Realizacja 1" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                    <img src="realizacja.jpg" alt="Realizacja brukarstwa - podjazd" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
                 </div>
                 <div class="carousel-item" data-index="1">
-                    <img src="realizacja2.jpg" alt="Realizacja 2" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                    <img src="realizacja2.jpg" alt="Realizacja brukarstwa - taras" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
                 </div>
                 <div class="carousel-item" data-index="2">
-                    <img src="realizacja3.jpg" alt="Realizacja 3" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                    <img src="realizacja3.jpg" alt="Realizacja brukarstwa - chodnik" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
                 </div>
                 <div class="carousel-item" data-index="3">
-                    <img src="realizacja4.jpg" alt="Realizacja 4" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                    <img src="realizacja4.jpg" alt="Realizacja - kostka granitowa" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
                 </div>
                 <div class="carousel-item" data-index="4">
-                    <img src="realizacja5.jpg" alt="Realizacja 5" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                    <img src="realizacja5.jpg" alt="Realizacja - system odwodnienia" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
                 </div>
                 <div class="carousel-item" data-index="5">
-                    <img src="realizacja6.jpg" alt="Realizacja 6" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                    <img src="realizacja6.jpg" alt="Realizacja - podjazd z kostki" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
                 </div>
                 <div class="carousel-item" data-index="6">
-                    <img src="realizacja7.jpg" alt="Realizacja 7" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                    <img src="realizacja7.jpg" alt="Realizacja - ogrodzenie" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
                 </div>
                 <div class="carousel-item" data-index="7">
-                    <img src="realizacja8.jpg" alt="Realizacja 8" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                    <img src="realizacja8.jpg" alt="Realizacja - taras ogrodowy" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
                 </div>
                 <div class="carousel-item" data-index="8">
-                    <img src="realizacja9.jpg" alt="Realizacja 9" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                    <img src="realizacja9.jpg" alt="Realizacja - drenaż" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
                 </div>
             </div>
             <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Poprzednie">
@@ -151,159 +213,143 @@
                 <i class="fas fa-chevron-right"></i>
             </button>
             <div class="carousel-dots" id="carouselDots"></div>
+            <div class="carousel-counter" id="carouselCounter">1 / 9</div>
         </div>
 
-        <!-- Lightbox -->
-        <div class="lightbox" id="lightbox">
-            <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
-            <button class="lightbox-nav lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
-            <img src="" alt="" id="lightboxImg">
-            <button class="lightbox-nav lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
-            <div class="lightbox-counter" id="lightboxCounter"></div>
+        <div class="container">
+            <div class="realizations-cta">
+                <p>Podoba Ci się nasza praca? <strong>Twoja posesja może wyglądać tak samo!</strong></p>
+                <a href="#kontakt" class="btn-primary btn-large"><i class="fas fa-phone-alt"></i> Zamów bezpłatną
+                    wycenę</a>
+            </div>
         </div>
     </section>
 
+    <!-- O NAS — profesjonalnie i konkretnie -->
     <section id="o-nas" class="about section-pattern-reveal section-padding">
         <div class="container about-container">
             <div class="about-image-side">
                 <img src="malko.png" alt="MALKO BRUK Logo" class="about-logo-large">
+                <div class="about-stats-compact">
+                    <div class="stat-mini"><strong>9+ lat</strong><span>doświadczenia</span></div>
+                    <div class="stat-mini"><strong>Polska</strong><span>firma S.C.</span></div>
+                </div>
             </div>
             <div class="about-text">
-                <h2>O nas</h2>
+                <h2>Solidny fundament Twojej posesji</h2>
                 <div class="underline-left"></div>
-                <p class="lead-text">Dojeżdżamy do klienta, doradzamy i wykonujemy bezpłatną wycenę.</p>
-                <p>MALKO BRUK S.C. to firma z siedzibą w Tychach, założona przez Kamila Malickiego i Piotra Kozłowskiego. Specjalizujemy się w profesjonalnym brukarstwie, systemach odwodnień oraz montażu bram i ogrodzeń.</p>
-                <p>Działamy kompleksowo na terenie województw <strong>śląskiego i małopolskiego</strong>. Nasze doświadczenie pozwala realizować wymagające projekty przy wykorzystaniu nowoczesnego sprzętu i sprawdzonych technologii. Stawiamy na jakość, precyzję i najlepsze materiały.</p>
+                <p class="lead-text">Jesteśmy zespołem fachowców, dla których liczy się trwałość i precyzja wykonania.
+                    Budujemy infrastrukturę na lata.</p>
+                <p>MALKO BRUK S.C. to firma z siedzibą w Tychach, założona przez <strong>Kamila Malickiego</strong> i
+                    <strong>Piotra Kozłowskiego</strong>. Specjalizujemy się w profesjonalnym brukarstwie, wdrażaniu
+                    kompleksowych systemów odwodnień oraz montażu bram i ogrodzeń.</p>
+                <p>Naszym priorytetem jest techniczna poprawność oraz estetyka. Działamy na terenie województw
+                    <strong>śląskiego i małopolskiego</strong>, oferując pełne zaplecze maszynowe i sprawdzoną
+                    ekspertyzę budowlaną.</p>
 
                 <div class="about-values">
                     <div class="value-item">
-                        <i class="fas fa-award"></i>
-                        <span>Gwarancja jakości</span>
+                        <i class="fas fa-truck-monster"></i>
+                        <div><strong>Własne zaplecze maszynowe</strong><span>Niezależność sprzętowa</span></div>
                     </div>
                     <div class="value-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Terminowość</span>
+                        <i class="fas fa-layer-group"></i>
+                        <div><strong>Kompleksowa realizacja</strong><span>Od robót ziemnych po finał</span></div>
                     </div>
                     <div class="value-item">
-                        <i class="fas fa-user-tie"></i>
-                        <span>Fachowe doradztwo</span>
+                        <i class="fas fa-clipboard-check"></i>
+                        <div><strong>Certyfikowane materiały</strong><span>Sprawdzeni producenci</span></div>
                     </div>
                 </div>
 
-
-
-                <div class="location-badge">
-                    <i class="fas fa-map-marker-alt"></i> Tychy, Poland
+                <div class="about-cta-row">
+                    <a href="#kontakt" class="btn-primary"><i class="fas fa-phone-alt"></i> Skonsultuj swój projekt</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- AKTUALNOŚCI -->
     <section id="aktualnosci" class="news bg-alt section-padding">
         <div class="container">
             <div class="section-title">
                 <h2>Aktualności</h2>
                 <div class="underline"></div>
-                <p>Najnowsze informacje z życia firmy i realizowanych projektów</p>
+                <p>Śledź nasze realizacje i bądź na bieżąco</p>
             </div>
             <div class="news-layout">
-
-                <!-- LEFT: Facebook Social CTA -->
                 <div class="news-fb-cta-col">
                     <div class="fb-cta-card">
-                        <div class="fb-cta-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </div>
+                        <div class="fb-cta-icon"><i class="fab fa-facebook-f"></i></div>
                         <h3>Śledź nasze realizacje<br>na bieżąco</h3>
-                        <p>Dołącz do naszej społeczności na Facebooku i bądź pierwszym, który zobaczy najnowsze projekty brukarskie, odwodnienia i montaże bram.</p>
+                        <p>Dołącz do naszej społeczności na Facebooku i bądź pierwszym, który zobaczy najnowsze
+                            projekty.</p>
                         <ul class="fb-cta-perks">
                             <li><i class="fas fa-check-circle"></i> Nowe realizacje co tydzień</li>
-                            <li><i class="fas fa-check-circle"></i> Porady i wskazówki branżowe</li>
-                            <li><i class="fas fa-check-circle"></i> Aktualne promocje i oferty</li>
-                            <li><i class="fas fa-check-circle"></i> Szybki kontakt przez Messenger</li>
+                            <li><i class="fas fa-check-circle"></i> Porady branżowe</li>
+                            <li><i class="fas fa-check-circle"></i> Szybki kontakt</li>
                         </ul>
-                        <a href="https://www.facebook.com/profile.php?id=61573181715064" target="_blank" class="fb-cta-btn">
-                            <i class="fab fa-facebook-f"></i>
-                            Obserwuj MALKO BRUK
+                        <a href="https://www.facebook.com/profile.php?id=61573181715064" target="_blank"
+                            class="fb-cta-btn">
+                            <i class="fab fa-facebook-f"></i> Obserwuj MALKO BRUK
                         </a>
                         <div class="fb-cta-stats">
-                            <div class="fb-stat">
-                                <strong>170+</strong>
-                                <span>obserwujących</span>
-                            </div>
+                            <div class="fb-stat"><strong>Solidność</strong><span>Gwarantowana</span></div>
                             <div class="fb-stat-divider"></div>
-                            <div class="fb-stat">
-                                <strong>9+</strong>
-                                <span>realizacji w galerii</span>
-                            </div>
-                            <div class="fb-stat-divider"></div>
-                            <div class="fb-stat">
-                                <strong>100%</strong>
-                                <span>zadowolonych klientów</span>
-                            </div>
+                            <div class="fb-stat"><strong>100%</strong><span>Polski kapitał</span></div>
                         </div>
                     </div>
                 </div>
-
-                <!-- RIGHT: Facebook Widget -->
                 <div class="news-fb-col">
-                    <div class="fb-widget-wrapper">
-                        <iframe
-                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61573181715064&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                            width="500" height="600"
-                            style="border:none;overflow:hidden;display:block;width:100%;"
-                            scrolling="no" frameborder="0" allowfullscreen="true"
+                    <div class="fb-widget-wrapper" id="fbWidgetWrapper">
+                        <iframe id="fbWidget"
+                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61573181715064&tabs=timeline&width=500&height=800&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId"
+                            width="100%" height="100%"
+                            style="border:none;overflow:hidden;display:block;width:100%;height:100%;min-height:500px;"
+                            scrolling="yes" frameborder="0" allowfullscreen="true"
                             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
+    <!-- KONTAKT — modern, trust-focused, clear next step -->
     <section id="kontakt" class="contact section-pattern-reveal section-padding">
         <div class="container">
             <div class="section-title">
                 <h2>Skontaktuj się z nami</h2>
                 <div class="underline"></div>
-                <p>Masz pytania? Chcesz wycenić projekt? Zadzwoń do nas!</p>
+                <p>Odpowiadamy szybko i konkretnie. Umów się na darmową wycenę.</p>
             </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h4>Zadzwoń</h4>
-                            <p>797 506 595</p>
-                        </div>
-                    </div>
 
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Adres</h4>
-                            <p>ul. Jankowicka 29M/1<br>43-100 Tychy</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fab fa-facebook"></i>
-                        <div>
-                            <h4>Facebook</h4>
-                            <p><a href="https://www.facebook.com/profile.php?id=61573181715064" target="_blank"
-                                    style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
-                                    onmouseover="this.style.color='var(--primary-color)'"
-                                    onmouseout="this.style.color='var(--text-muted)'">Odwiedź nasz profil</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="call-cta-box">
-                    <h3>Najszybszy kontakt telefoniczny</h3>
-                    <p>Kliknij w poniższy przycisk, aby połączyć się z naszym ekspertem i otrzymać darmową wycenę.</p>
+            <div class="contact-modern-wrapper">
+                <div class="contact-cta-box">
+                    <h3>Bezpośredni kontakt z ekspertem</h3>
                     <a href="tel:797506595" class="btn-primary btn-call-now">
                         <i class="fas fa-phone-alt"></i> 797 506 595
                     </a>
-                    <div class="availability">
-                        <span class="status-dot"></span> Jesteśmy do Twojej dyspozycji
+                    <p class="availability"><span class="status-dot"></span> Jesteśmy do dyspozycji: Pon-Sob, 7:00 –
+                        19:00</p>
+                </div>
+
+                <div class="contact-grid-clean">
+                    <div class="clean-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Napisz do nas</h4>
+                        <a href="mailto:malkobruk@gmail.com">malkobruk@gmail.com</a>
+                        <a href="https://www.facebook.com/profile.php?id=61573181715064" target="_blank"
+                            class="fb-link">Messenger</a>
+                    </div>
+                    <div class="clean-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Siedziba firmy</h4>
+                        <p>ul. Jankowicka 29M/1<br>43-100 Tychy</p>
+                    </div>
+                    <div class="clean-info-item">
+                        <i class="fas fa-file-invoice"></i>
+                        <h4>Dane rejestrowe</h4>
+                        <p>MALKO BRUK S.C.<br>NIP: 6463008811<br>REGON: 526900653</p>
                     </div>
                 </div>
             </div>
@@ -349,22 +395,11 @@
                 <div class="footer-col">
                     <h4>Kontakt</h4>
                     <ul class="contact-details">
-                        <li>
-                            <i class="fas fa-phone-alt"></i>
-                            <a href="tel:797506595">797 506 595</a>
+                        <li><i class="fas fa-phone-alt"></i><a href="tel:797506595">797 506 595</a></li>
+                        <li><i class="fas fa-envelope"></i><a href="mailto:malkobruk@gmail.com">malkobruk@gmail.com</a>
                         </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:malkobruk@gmail.com">malkobruk@gmail.com</a>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>ul. Jankowicka 29M/1<br>43-100 Tychy</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-globe"></i>
-                            <span>Śląskie &amp; Małopolskie</span>
-                        </li>
+                        <li><i class="fas fa-map-marker-alt"></i><span>ul. Jankowicka 29M/1<br>43-100 Tychy</span></li>
+                        <li><i class="fas fa-globe"></i><span>Śląskie &amp; Małopolskie</span></li>
                     </ul>
                 </div>
             </div>
@@ -372,12 +407,22 @@
         <div class="footer-bottom">
             <div class="container footer-bottom-inner">
                 <p>&copy; 2026 MALKO BRUK S.C. Wszelkie prawa zastrzeżone.</p>
-                <p class="credit">Strona stworzona przez: <a href="https://kingtos.pl" target="_blank">Kingtos dev</a></p>
+                <p class="credit">Strona stworzona przez: <a href="https://kingtos.pl" target="_blank">Kingtos dev</a>
+                </p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+        <img src="" alt="" id="lightboxImg">
+        <button class="lightbox-nav lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
+    <script src="script.js?v=4"></script>
 </body>
 
 </html>
