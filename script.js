@@ -71,23 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (carouselTrack) {
         let originalItems = Array.from(carouselTrack.querySelectorAll('.carousel-item'));
         let realTotal = originalItems.length;
-        
-        // Inject dynamic captions into original items before cloning
-        originalItems.forEach(item => {
-            const img = item.querySelector('img');
-            const overlay = item.querySelector('.carousel-item-overlay');
-            if (img && overlay) {
-                const altText = img.getAttribute('alt') || 'Realizacja MALKO BRUK';
-                const captionEl = document.createElement('div');
-                captionEl.className = 'carousel-item-caption';
-                captionEl.innerHTML = `
-                    <span class="caption-tag">Projekt</span>
-                    <p class="caption-title">${altText}</p>
-                `;
-                overlay.appendChild(captionEl);
-            }
-        });
-        
         // Clone items for infinite loop (clone all items twice to be safe)
         originalItems.forEach(item => {
             let clone = item.cloneNode(true);

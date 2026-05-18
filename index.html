@@ -13,7 +13,7 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="malko.png">
     <link rel="icon" type="image/png" href="logo.png">
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
@@ -21,11 +21,11 @@
 </head>
 
 <body>
-
-    <nav class="navbar">
+    <a href="#main-content" class="skip-link">Przejdź do treści</a>
+    <nav class="navbar" aria-label="Główna nawigacja">
         <div class="container nav-container">
-            <a href="#" class="logo-link">
-                <img src="malko.png" alt="MALKO BRUK Logo" class="main-logo">
+            <a href="#" class="logo-link" aria-label="Strona główna MALKO BRUK">
+                <img src="malko.png" alt="MALKO BRUK - Logo firmy brukarskiej ze Śląska" width="150" height="55" class="main-logo">
             </a>
             <div class="nav-links">
                 <a href="#uslugi">Usługi</a>
@@ -33,25 +33,25 @@
                 <a href="#o-nas">O nas</a>
                 <a href="#aktualnosci">Aktualności</a>
                 <div class="nav-divider"></div>
-                <a href="tel:797506595" class="nav-phone">
-                    <i class="fas fa-phone-alt"></i>
+                <a href="tel:797506595" class="nav-phone" aria-label="Zadzwoń do nas: 797 506 595">
+                    <i class="fas fa-phone-alt" aria-hidden="true"></i>
                     <span>797 506 595</span>
                 </a>
                 <a href="#kontakt" class="btn-primary">Darmowa Wycena</a>
             </div>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
+            <button class="mobile-menu-btn" aria-label="Otwórz menu mobilne" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
         </div>
     </nav>
 
     <!-- HERO -->
     <header class="hero bg-alt">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-overlay" aria-hidden="true"></div>
         <div class="container hero-content">
             <div class="hero-badge">
-                <i class="fas fa-map-marker-alt"></i> Śląskie & Małopolskie
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Śląskie & Małopolskie
             </div>
             <h1>Profesjonalne usługi<br><span class="highlight">brukarskie i odwodnieniowe</span></h1>
             <p class="hero-description">Układamy kostki brukowe, projektujemy systemy odwodnień i montujemy bramy —
@@ -62,15 +62,19 @@
                     realizacje</a>
             </div>
             <div class="hero-trust">
-                <div class="trust-item"><i class="fas fa-check-circle"></i> Bezpłatna wycena</div>
-                <div class="trust-item"><i class="fas fa-check-circle"></i> Gwarancja na prace</div>
-                <div class="trust-item"><i class="fas fa-check-circle"></i> Terminowość</div>
+                <div class="trust-item"><i class="fas fa-check-circle" aria-hidden="true"></i> Bezpłatna wycena</div>
+                <div class="trust-item"><i class="fas fa-check-circle" aria-hidden="true"></i> Gwarancja na prace</div>
+                <div class="trust-item"><i class="fas fa-check-circle" aria-hidden="true"></i> Terminowość</div>
             </div>
         </div>
+        
+        <!-- Paving Style Divider -->
+        <div class="paving-divider"></div>
     </header>
 
-    <!-- USŁUGI — clear offerings, pain-point focus, how it works, CTA -->
-    <section id="uslugi" class="services section-pattern-reveal section-padding">
+    <main id="main-content">
+        <!-- USŁUGI — clear offerings, pain-point focus, how it works, CTA -->
+        <section id="uslugi" class="services section-pattern-reveal section-padding">
         <div class="container">
             <div class="section-title">
                 <h2>Co robimy?</h2>
@@ -170,40 +174,40 @@
         <div class="carousel-root" id="carouselRoot">
             <div class="carousel-track" id="carouselTrack">
                 <div class="carousel-item" data-index="0">
-                    <img src="realizacja.jpg" alt="Realizacja brukarstwa - podjazd" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
+                    <img src="realizacja.jpg" width="800" height="600" alt="Podjazd z kostki brukowej, Śląsk" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
                 </div>
                 <div class="carousel-item" data-index="1">
-                    <img src="realizacja2.jpg" alt="Realizacja brukarstwa - taras" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
+                    <img src="realizacja2.jpg" width="800" height="600" alt="Nowoczesny taras z kostki betonowej, Tychy" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
                 </div>
                 <div class="carousel-item" data-index="2">
-                    <img src="realizacja3.jpg" alt="Realizacja brukarstwa - chodnik" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
+                    <img src="realizacja3.jpg" width="800" height="600" alt="Elegancki chodnik przydomowy, Małopolska" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
                 </div>
                 <div class="carousel-item" data-index="3">
-                    <img src="realizacja4.jpg" alt="Realizacja - kostka granitowa" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
+                    <img src="realizacja4.jpg" width="800" height="600" alt="Podjazd z kostki granitowej premium" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
                 </div>
                 <div class="carousel-item" data-index="4">
-                    <img src="realizacja5.jpg" alt="Realizacja - system odwodnienia" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
+                    <img src="realizacja5.jpg" width="800" height="600" alt="System odwodnienia liniowego na podjeździe" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
                 </div>
                 <div class="carousel-item" data-index="5">
-                    <img src="realizacja6.jpg" alt="Realizacja - podjazd z kostki" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
+                    <img src="realizacja6.jpg" width="800" height="600" alt="Trwały podjazd z kostki brukowej przed domem" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
                 </div>
                 <div class="carousel-item" data-index="6">
-                    <img src="realizacja7.jpg" alt="Realizacja - ogrodzenie" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
+                    <img src="realizacja7.jpg" width="800" height="600" alt="Nowoczesne ogrodzenie panelowe z bramą" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
                 </div>
                 <div class="carousel-item" data-index="7">
-                    <img src="realizacja8.jpg" alt="Realizacja - taras ogrodowy" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
+                    <img src="realizacja8.jpg" width="800" height="600" alt="Taras ogrodowy z dużych płyt betonowych" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
                 </div>
                 <div class="carousel-item" data-index="8">
-                    <img src="realizacja9.jpg" alt="Realizacja - drenaż" loading="lazy">
-                    <div class="carousel-item-overlay"><i class="fas fa-search-plus"></i></div>
+                    <img src="realizacja9.jpg" width="800" height="600" alt="Drenaż opaskowy wokół fundamentów domu" loading="lazy">
+                    <div class="carousel-item-overlay"><i class="fas fa-search-plus" aria-hidden="true"></i></div>
                 </div>
             </div>
             <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Poprzednie">
@@ -234,7 +238,7 @@
                     <div class="about-logo-card">
                         <div class="about-logo-glowing-back"></div>
                         <div class="about-logo-inner">
-                            <img src="malko.png" alt="MALKO BRUK Logo" class="about-logo-img">
+                            <img src="malko.png" width="300" height="150" alt="Logo MALKO BRUK w Tychach" class="about-logo-img">
                         </div>
                         <div class="experience-badge">
                             <span class="badge-num">9+</span>
@@ -341,11 +345,11 @@
                 </div>
                 <div class="news-fb-col">
                     <div class="fb-widget-wrapper" id="fbWidgetWrapper">
-                        <iframe id="fbWidget"
+                        <iframe id="fbWidget" title="Profil MALKO BRUK na Facebooku"
                             src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61573181715064&tabs=timeline&width=500&height=800&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId"
                             width="100%" height="100%"
                             style="border:none;overflow:hidden;display:block;width:100%;height:100%;min-height:500px;"
-                            scrolling="yes" frameborder="0" allowfullscreen="true"
+                            scrolling="yes" frameborder="0" allowfullscreen="true" loading="lazy"
                             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     </div>
                 </div>
@@ -399,12 +403,13 @@
             </div>
         </div>
     </section>
+    </main>
 
     <footer>
         <div class="footer-inner">
             <div class="container footer-grid">
                 <div class="footer-col footer-logo-box">
-                    <img src="malko.png" alt="MALKO BRUK" class="footer-logo">
+                    <img src="malko.png" width="200" height="100" alt="MALKO BRUK S.C. Tychy" class="footer-logo" loading="lazy">
                     <p class="footer-company-name">MALKO BRUK S.C.</p>
                     <p class="footer-company-sub">Kamil Malicki &amp; Piotr Kozłowski</p>
                     <div class="footer-legal">
@@ -458,15 +463,15 @@
     </footer>
 
     <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
-        <img src="" alt="" id="lightboxImg">
-        <button class="lightbox-nav lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
-        <div class="lightbox-counter" id="lightboxCounter"></div>
+    <div class="lightbox" id="lightbox" role="dialog" aria-label="Galeria zdjęć" aria-modal="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Zamknij galerię"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Poprzednie zdjęcie"><i class="fas fa-chevron-left"></i></button>
+        <img src="" alt="Powiększone zdjęcie realizacji" id="lightboxImg">
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Następne zdjęcie"><i class="fas fa-chevron-right"></i></button>
+        <div class="lightbox-counter" id="lightboxCounter" aria-live="polite"></div>
     </div>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=4" defer></script>
 </body>
 
 </html>
