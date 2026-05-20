@@ -278,7 +278,7 @@ h3 { font-size: var(--font-size-h3); }
 /* Paving-style Transition Divider (Realistic Running Bond / Interlocking Bricks) */
 .paving-divider {
     position: absolute;
-    top: -24px; /* Positioned lower, overlapping the services section */
+    top: -18px; /* Positioned slightly lower to align line with background image edge */
     left: 0;
     width: 100%;
     height: 56px; /* Optimized height for natural brick paving aspect ratios */
@@ -413,7 +413,7 @@ section[id] {
 /* Services */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 28px;
 }
 
@@ -2095,6 +2095,10 @@ footer::before {
 }
 
 @media (max-width: 960px) {
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
     .news-fb-cta-col,
     .news-fb-col {
