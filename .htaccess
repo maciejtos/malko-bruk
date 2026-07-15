@@ -1,0 +1,65 @@
+# =============================================================
+# MALKO BRUK S.C. — Konfiguracja serwera Apache (.htaccess)
+# =============================================================
+
+# ---- 1. Wymuszenie HTTPS (przekierowanie 301) ----
+RewriteEngine On
+
+# Przekieruj HTTP → HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ---- 2. Wymuszenie wersji bez "www" (opcjonalnie — wybrać jedną z wersji) ----
+# Jeśli chcesz przekierować www → bez www, odkomentuj poniższe linie:
+# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+# RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# Jeśli chcesz przekierować bez www → www, odkomentuj poniższe linie:
+# RewriteCond %{HTTP_HOST} !^www\. [NC]
+# RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ---- 3. Obsługa błędów ----
+ErrorDocument 404 /index.html
+
+# ---- 4. Nagłówki bezpieczeństwa ----
+<IfModule mod_headers.c>
+    # Chroń przed clickjackingiem
+    Header always set X-Frame-Options "SAMEORIGIN"
+    # Chroń przed MIME sniffingiem
+    Header always set X-Content-Type-Options "nosniff"
+    # Wymuszenie HTTPS przez rok (HSTS)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    # Podstawowa polityka referrerów
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    # Polityka uprawnień (wyłącz niepotrzebne API przeglądarki)
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# ---- 5. Kompresja GZIP ----
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json
+    AddOutputFilterByType DEFLATE image/svg+xml font/woff font/woff2
+</IfModule>
+
+# ---- 6. Cache przeglądarki (długi czas dla statycznych zasobów) ----
+<IfModule mod_expires.c>
+    ExpiresActive On
+    # Obrazy WebP, PNG, JPG
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    # CSS i JS
+    ExpiresByType text/css "access plus 3 months"
+    ExpiresByType application/javascript "access plus 3 months"
+    # Czcionki
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    # HTML
+    ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# ---- 7. Ochrona pliku .htaccess przed odczytem ----
+<Files ".htaccess">
+    Order allow,deny
+    Deny from all
+</Files>

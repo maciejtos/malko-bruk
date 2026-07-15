@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polityka Prywatności | MALKO BRUK S.C.</title>
+    <meta name="description" content="Polityka prywatności firmy MALKO BRUK S.C. - informacje o przetwarzaniu danych osobowych, plikach cookies i prawach użytkowników zgodnie z RODO.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://malko-bruk.pl/polityka-prywatnosci.html">
+    <link rel="icon" type="image/webp" href="logo.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --clr-bg: #0e0e0e;
+            --clr-surface: #161616;
+            --clr-border: rgba(255,255,255,0.08);
+            --clr-accent: #e8a317;
+            --clr-accent-light: #f5c55a;
+            --clr-text: #d4d4d4;
+            --clr-text-muted: #888;
+            --clr-white: #ffffff;
+            --radius: 12px;
+            --font-main: 'Montserrat', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--clr-bg);
+            color: var(--clr-text);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* ---- Navbar ---- */
+        .pp-navbar {
+            background: rgba(14,14,14,0.97);
+            border-bottom: 1px solid var(--clr-border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .pp-nav-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .pp-nav-logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+        .pp-nav-back {
+            margin-left: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--clr-accent);
+            text-decoration: none;
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            transition: color 0.2s;
+        }
+        .pp-nav-back:hover { color: var(--clr-accent-light); }
+
+        /* ---- Hero ---- */
+        .pp-hero {
+            background: linear-gradient(135deg, #111 0%, #1a1a1a 50%, #111 100%);
+            border-bottom: 1px solid var(--clr-border);
+            padding: 60px 24px 50px;
+            text-align: center;
+        }
+        .pp-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(232,163,23,0.12);
+            border: 1px solid rgba(232,163,23,0.3);
+            border-radius: 50px;
+            padding: 6px 18px;
+            font-family: var(--font-main);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--clr-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 22px;
+        }
+        .pp-hero h1 {
+            font-family: var(--font-main);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 800;
+            color: var(--clr-white);
+            margin-bottom: 14px;
+        }
+        .pp-hero h1 span { color: var(--clr-accent); }
+        .pp-hero-meta {
+            color: var(--clr-text-muted);
+            font-size: 0.88rem;
+        }
+        .pp-hero-meta strong { color: var(--clr-text); }
+
+        /* ---- Main container ---- */
+        .pp-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 50px 24px 80px;
+        }
+
+        /* ---- Table of Contents ---- */
+        .pp-toc {
+            background: var(--clr-surface);
+            border: 1px solid var(--clr-border);
+            border-left: 4px solid var(--clr-accent);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            margin-bottom: 50px;
+        }
+        .pp-toc-title {
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--clr-white);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .pp-toc-title i { color: var(--clr-accent); }
+        .pp-toc ol {
+            padding-left: 20px;
+        }
+        .pp-toc ol li {
+            margin-bottom: 8px;
+        }
+        .pp-toc ol li a {
+            color: var(--clr-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .pp-toc ol li a:hover { color: var(--clr-accent); }
+
+        /* ---- Sections ---- */
+        .pp-section {
+            margin-bottom: 50px;
+            scroll-margin-top: 80px;
+        }
+        .pp-section-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--clr-border);
+        }
+        .pp-section-num {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--clr-accent), #d4890f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-main);
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #000;
+            margin-top: 2px;
+        }
+        .pp-section h2 {
+            font-family: var(--font-main);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--clr-white);
+            line-height: 1.3;
+        }
+        .pp-section p {
+            margin-bottom: 14px;
+            font-size: 0.94rem;
+            color: var(--clr-text);
+        }
+        .pp-section p:last-child { margin-bottom: 0; }
+        .pp-section ul, .pp-section ol {
+            padding-left: 22px;
+            margin-bottom: 14px;
+        }
+        .pp-section li {
+            font-size: 0.94rem;
+            color: var(--clr-text);
+            margin-bottom: 8px;
+        }
+        .pp-section h3 {
+            font-family: var(--font-main);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--clr-white);
+            margin: 22px 0 10px;
+        }
+
+        /* ---- Info box ---- */
+        .pp-info-box {
+            background: rgba(232,163,23,0.08);
+            border: 1px solid rgba(232,163,23,0.25);
+            border-radius: var(--radius);
+            padding: 18px 22px;
+            margin: 20px 0;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+        .pp-info-box i {
+            color: var(--clr-accent);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .pp-info-box p {
+            margin: 0;
+            font-size: 0.91rem;
+        }
+
+        /* ---- Cookie table ---- */
+        .pp-cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.88rem;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--clr-border);
+        }
+        .pp-cookie-table thead tr {
+            background: rgba(232,163,23,0.15);
+        }
+        .pp-cookie-table th {
+            padding: 12px 16px;
+            text-align: left;
+            font-family: var(--font-main);
+            font-weight: 700;
+            color: var(--clr-accent);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .pp-cookie-table td {
+            padding: 12px 16px;
+            border-top: 1px solid var(--clr-border);
+            color: var(--clr-text);
+            vertical-align: top;
+        }
+        .pp-cookie-table tbody tr:hover {
+            background: rgba(255,255,255,0.03);
+        }
+
+        /* ---- Contact box ---- */
+        .pp-contact-box {
+            background: var(--clr-surface);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius);
+            padding: 30px 32px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .pp-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .pp-contact-item i {
+            color: var(--clr-accent);
+            font-size: 1rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        .pp-contact-item p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .pp-contact-item a {
+            color: var(--clr-accent);
+            text-decoration: none;
+        }
+        .pp-contact-item a:hover {
+            color: var(--clr-accent-light);
+            text-decoration: underline;
+        }
+        .pp-contact-label {
+            font-family: var(--font-main);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--clr-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 4px !important;
+        }
+
+        /* ---- Footer ---- */
+        .pp-footer {
+            background: #0a0a0a;
+            border-top: 1px solid var(--clr-border);
+            padding: 24px;
+            text-align: center;
+            font-size: 0.84rem;
+            color: var(--clr-text-muted);
+        }
+        .pp-footer a {
+            color: var(--clr-accent);
+            text-decoration: none;
+        }
+        .pp-footer a:hover { text-decoration: underline; }
+
+        /* ---- Responsive ---- */
+        @media (max-width: 600px) {
+            .pp-contact-box { grid-template-columns: 1fr; }
+            .pp-toc { padding: 20px; }
+            .pp-section-header { flex-direction: row; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="pp-navbar" aria-label="Nawigacja strony polityki prywatności">
+        <div class="pp-nav-inner">
+            <a href="index.html" class="pp-nav-logo" aria-label="Powrót do strony głównej MALKO BRUK">
+                <img src="malko_logo_napis.webp" alt="MALKO BRUK" width="130" height="47">
+            </a>
+            <a href="index.html" class="pp-nav-back">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i> Powrót do strony głównej
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="pp-hero">
+        <div class="pp-hero-badge">
+            <i class="fas fa-shield-alt" aria-hidden="true"></i> RODO / GDPR
+        </div>
+        <h1>Polityka <span>Prywatności</span></h1>
+        <p class="pp-hero-meta">
+            Dotyczy: <strong>MALKO BRUK S.C.</strong> &nbsp;|&nbsp;
+            Data aktualizacji: <strong>15 lipca 2026 r.</strong> &nbsp;|&nbsp;
+            Wersja: <strong>1.0</strong>
+        </p>
+    </div>
+
+    <!-- Main content -->
+    <main class="pp-container" id="main-content">
+
+        <!-- Table of Contents -->
+        <nav class="pp-toc" aria-label="Spis treści">
+            <div class="pp-toc-title">
+                <i class="fas fa-list-ul" aria-hidden="true"></i> Spis treści
+            </div>
+            <ol>
+                <li><a href="#administrator">Administrator danych osobowych</a></li>
+                <li><a href="#cel-przetwarzania">Cel i podstawa przetwarzania danych</a></li>
+                <li><a href="#kategorie-danych">Kategorie przetwarzanych danych</a></li>
+                <li><a href="#odbiorcy">Odbiorcy danych</a></li>
+                <li><a href="#przechowywanie">Okres przechowywania danych</a></li>
+                <li><a href="#prawa">Twoje prawa</a></li>
+                <li><a href="#cookies">Pliki cookies</a></li>
+                <li><a href="#media-spolecznosciowe">Media społecznościowe – Facebook</a></li>
+                <li><a href="#bezpieczenstwo">Bezpieczeństwo danych</a></li>
+                <li><a href="#zmiany">Zmiany polityki prywatności</a></li>
+                <li><a href="#kontakt-pp">Kontakt w sprawie danych osobowych</a></li>
+            </ol>
+        </nav>
+
+        <!-- §1 Administrator -->
+        <section class="pp-section" id="administrator">
+            <div class="pp-section-header">
+                <div class="pp-section-num">1</div>
+                <h2>Administrator danych osobowych</h2>
+            </div>
+            <p>Administratorem Twoich danych osobowych jest:</p>
+            <div class="pp-info-box">
+                <i class="fas fa-building" aria-hidden="true"></i>
+                <div>
+                    <p><strong>MALKO BRUK S.C.</strong><br>
+                    Kamil Malicki &amp; Piotr Kozłowski<br>
+                    ul. Jankowicka 29M/1, 43-100 Tychy<br>
+                    NIP: 6463008811 &nbsp;|&nbsp; REGON: 526900653<br>
+                    E-mail: <a href="mailto:malkobruk@gmail.com" style="color: #e8a317;">malkobruk@gmail.com</a><br>
+                    Telefon: <a href="tel:+48797506595" style="color: #e8a317;">+48 797 506 595</a></p>
+                </div>
+            </div>
+            <p>W sprawach dotyczących ochrony danych osobowych możesz skontaktować się z nami pod wyżej wskazanymi danymi kontaktowymi. Nie wyznaczyliśmy Inspektora Ochrony Danych (IOD), ponieważ nie mamy takiego obowiązku zgodnie z art. 37 RODO.</p>
+        </section>
+
+        <!-- §2 Cel i podstawa -->
+        <section class="pp-section" id="cel-przetwarzania">
+            <div class="pp-section-header">
+                <div class="pp-section-num">2</div>
+                <h2>Cel i podstawa przetwarzania danych</h2>
+            </div>
+            <p>Przetwarzamy Twoje dane osobowe w następujących celach i na następujących podstawach prawnych (art. 6 RODO):</p>
+            <ul>
+                <li><strong>Odpowiedź na zapytanie ofertowe / kontakt</strong> — podstawa: art. 6 ust. 1 lit. b RODO (niezbędność do podjęcia działań przed zawarciem umowy) lub art. 6 ust. 1 lit. f RODO (prawnie uzasadniony interes — udzielenie odpowiedzi na kontakt).</li>
+                <li><strong>Zawarcie i wykonanie umowy</strong> — podstawa: art. 6 ust. 1 lit. b RODO (niezbędność do wykonania umowy).</li>
+                <li><strong>Wystawianie faktur, rozliczenia podatkowe</strong> — podstawa: art. 6 ust. 1 lit. c RODO (obowiązek prawny).</li>
+                <li><strong>Dochodzenie lub obrona roszczeń</strong> — podstawa: art. 6 ust. 1 lit. f RODO (prawnie uzasadniony interes).</li>
+                <li><strong>Analityka ruchu na stronie (opcjonalne cookies)</strong> — podstawa: art. 6 ust. 1 lit. a RODO (zgoda użytkownika).</li>
+                <li><strong>Wyświetlanie treści z mediów społecznościowych (Facebook)</strong> — podstawa: art. 6 ust. 1 lit. a RODO (zgoda użytkownika).</li>
+            </ul>
+        </section>
+
+        <!-- §3 Kategorie danych -->
+        <section class="pp-section" id="kategorie-danych">
+            <div class="pp-section-header">
+                <div class="pp-section-num">3</div>
+                <h2>Kategorie przetwarzanych danych</h2>
+            </div>
+            <p>W zależności od sposobu kontaktu możemy przetwarzać następujące kategorie danych:</p>
+            <ul>
+                <li>Dane identyfikacyjne: imię i nazwisko, nazwa firmy.</li>
+                <li>Dane kontaktowe: adres e-mail, numer telefonu, adres korespondencyjny.</li>
+                <li>Dane dotyczące zapytania: opis zlecenia, lokalizacja prac, preferowane terminy.</li>
+                <li>Dane finansowe (przy realizacji umowy): numer rachunku bankowego, NIP (dla firm).</li>
+                <li>Dane techniczne (przy korzystaniu ze strony): adres IP, identyfikatory cookies, dane o urządzeniu i przeglądarce — wyłącznie po wyrażeniu odpowiedniej zgody.</li>
+            </ul>
+            <div class="pp-info-box">
+                <i class="fas fa-info-circle" aria-hidden="true"></i>
+                <p>Nie przetwarzamy danych wrażliwych (tzw. szczególnych kategorii danych) w rozumieniu art. 9 RODO, takich jak dane o zdrowiu, przekonaniach religijnych czy przynależności do związków zawodowych.</p>
+            </div>
+        </section>
+
+        <!-- §4 Odbiorcy -->
+        <section class="pp-section" id="odbiorcy">
+            <div class="pp-section-header">
+                <div class="pp-section-num">4</div>
+                <h2>Odbiorcy danych</h2>
+            </div>
+            <p>Twoje dane mogą być udostępniane wyłącznie podmiotom, które zapewniają odpowiedni poziom ochrony danych. Kategorie odbiorców obejmują:</p>
+            <ul>
+                <li><strong>Dostawcy usług IT i hostingowych</strong> — firma hostingująca stronę internetową, dostawca poczty elektronicznej.</li>
+                <li><strong>Biuro rachunkowe / księgowe</strong> — w zakresie wystawiania faktur i rozliczeń podatkowych.</li>
+                <li><strong>Meta Platforms Ireland Ltd. (Facebook)</strong> — wyłącznie gdy wyrazisz zgodę na marketingowe pliki cookies i załadujesz widżet Facebooka osadzony na stronie.</li>
+                <li><strong>Organy państwowe</strong> — gdy wymagają tego przepisy prawa (np. US, ZUS, organy kontrolne).</li>
+            </ul>
+            <p>Nie sprzedajemy Twoich danych osobowych osobom trzecim.</p>
+        </section>
+
+        <!-- §5 Przechowywanie -->
+        <section class="pp-section" id="przechowywanie">
+            <div class="pp-section-header">
+                <div class="pp-section-num">5</div>
+                <h2>Okres przechowywania danych</h2>
+            </div>
+            <ul>
+                <li><strong>Dane z korespondencji i zapytań ofertowych</strong> — przez czas niezbędny do obsługi zapytania, a następnie do czasu upływu ewentualnych roszczeń (co do zasady 3 lata od dnia zakończenia korespondencji).</li>
+                <li><strong>Dane dotyczące zawartych umów</strong> — przez okres 5 lat od końca roku podatkowego, w którym wykonano usługę (obowiązki wynikające z prawa podatkowego).</li>
+                <li><strong>Dane w fakturach</strong> — 5 lat od końca roku podatkowego zgodnie z art. 70 § 1 Ordynacji podatkowej.</li>
+                <li><strong>Dane z plików cookies analitycznych</strong> — zgodnie z polityką dostawcy narzędzia (zazwyczaj do 2 lat od ostatniej aktywności); zgoda jest przechowywana w localStorage przeglądarki do momentu jej cofnięcia lub wyczyszczenia danych przeglądarki.</li>
+                <li><strong>Dane z plików cookies marketingowych (Facebook)</strong> — zgodnie z polityką Meta Platforms; szczegóły dostępne w Centrum prywatności Meta.</li>
+            </ul>
+        </section>
+
+        <!-- §6 Prawa -->
+        <section class="pp-section" id="prawa">
+            <div class="pp-section-header">
+                <div class="pp-section-num">6</div>
+                <h2>Twoje prawa</h2>
+            </div>
+            <p>Jako osoba, której dane dotyczą, przysługują Ci następujące prawa wynikające z RODO:</p>
+            <ul>
+                <li><strong>Prawo dostępu (art. 15 RODO)</strong> — masz prawo uzyskać informację o tym, czy przetwarzamy Twoje dane, a jeśli tak — uzyskać ich kopię.</li>
+                <li><strong>Prawo do sprostowania (art. 16 RODO)</strong> — masz prawo żądać poprawienia nieprawidłowych lub uzupełnienia niekompletnych danych.</li>
+                <li><strong>Prawo do usunięcia (art. 17 RODO)</strong> — masz prawo żądać usunięcia danych („prawo do bycia zapomnianym"), gdy dane nie są już niezbędne do celów, w których je zebrano, lub gdy cofasz zgodę.</li>
+                <li><strong>Prawo do ograniczenia przetwarzania (art. 18 RODO)</strong> — masz prawo żądać ograniczenia przetwarzania w określonych przypadkach (np. kwestionujesz prawidłowość danych).</li>
+                <li><strong>Prawo do przenoszenia danych (art. 20 RODO)</strong> — masz prawo otrzymać dane w ustrukturyzowanym, powszechnie używanym formacie nadającym się do odczytu maszynowego.</li>
+                <li><strong>Prawo do sprzeciwu (art. 21 RODO)</strong> — masz prawo wnieść sprzeciw wobec przetwarzania danych opartego na prawnie uzasadnionym interesie administratora.</li>
+                <li><strong>Prawo do cofnięcia zgody</strong> — jeśli przetwarzanie odbywa się na podstawie Twojej zgody, możesz ją cofnąć w dowolnym momencie (bez wpływu na zgodność z prawem przetwarzania przed cofnięciem).</li>
+                <li><strong>Prawo do skargi</strong> — masz prawo wnieść skargę do organu nadzorczego: <strong>Prezesa Urzędu Ochrony Danych Osobowych (UODO)</strong>, ul. Stawki 2, 00-193 Warszawa, e-mail: kancelaria@uodo.gov.pl, strona: <a href="https://uodo.gov.pl" target="_blank" rel="noopener noreferrer" style="color:#e8a317;">uodo.gov.pl</a>.</li>
+            </ul>
+            <p>Aby skorzystać z powyższych praw, skontaktuj się z nami pod adresem: <a href="mailto:malkobruk@gmail.com" style="color:#e8a317;">malkobruk@gmail.com</a>. Odpowiemy bez zbędnej zwłoki — nie później niż w ciągu 30 dni od otrzymania żądania.</p>
+        </section>
+
+        <!-- §7 Cookies -->
+        <section class="pp-section" id="cookies">
+            <div class="pp-section-header">
+                <div class="pp-section-num">7</div>
+                <h2>Pliki cookies</h2>
+            </div>
+            <p>Nasza strona internetowa (<strong>malko-bruk.pl</strong>) używa plików cookies (ciasteczek) — małych plików tekstowych przechowywanych na Twoim urządzeniu — w celu zapewnienia prawidłowego działania strony, analizy ruchu oraz (po wyrażeniu zgody) wyświetlania treści społecznościowych.</p>
+
+            <h3>Rodzaje używanych plików cookies</h3>
+            <table class="pp-cookie-table" role="table" aria-label="Tabela plików cookies">
+                <thead>
+                    <tr>
+                        <th scope="col">Kategoria</th>
+                        <th scope="col">Nazwa / Identyfikator</th>
+                        <th scope="col">Cel</th>
+                        <th scope="col">Czas trwania</th>
+                        <th scope="col">Zgoda</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Niezbędne</strong></td>
+                        <td><code>malkobruk_cookie_consent</code></td>
+                        <td>Przechowuje Twój wybór dotyczący zgody na cookies (localStorage)</td>
+                        <td>Do wyczyszczenia przeglądarki</td>
+                        <td>Nie wymagana</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analityczne</strong></td>
+                        <td>Narzędzia analityczne (opcjonalnie)</td>
+                        <td>Analiza ruchu na stronie, zbieranie statystyk anonimowych (np. Google Analytics)</td>
+                        <td>Do 2 lat</td>
+                        <td>Wymagana</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marketingowe</strong></td>
+                        <td>Cookies Meta/Facebook</td>
+                        <td>Wyświetlanie widżetu profilu Facebook na stronie w sekcji „Aktualności"</td>
+                        <td>Zgodnie z polityką Meta</td>
+                        <td>Wymagana</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Jak zarządzać cookies?</h3>
+            <p>Przy pierwszej wizycie na stronie wyświetlamy baner cookies, który pozwala zaakceptować, odrzucić lub skonfigurować poszczególne kategorie plików cookie. Swoje preferencje możesz zmienić w dowolnym momencie, klikając ikonę tarczy (<i class="fas fa-shield-alt" aria-hidden="true" style="color:#e8a317;"></i>) widoczną w lewym dolnym rogu ekranu.</p>
+            <p>Możesz również zarządzać cookies za pomocą ustawień swojej przeglądarki internetowej. Poniżej znajdziesz linki do instrukcji dla popularnych przeglądarek:</p>
+            <ul>
+                <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" style="color:#e8a317;">Google Chrome</a></li>
+                <li><a href="https://support.mozilla.org/pl/kb/usuwanie-ciasteczek" target="_blank" rel="noopener noreferrer" style="color:#e8a317;">Mozilla Firefox</a></li>
+                <li><a href="https://support.microsoft.com/pl-pl/microsoft-edge/usuwanie-pliki-cookie" target="_blank" rel="noopener noreferrer" style="color:#e8a317;">Microsoft Edge</a></li>
+                <li><a href="https://support.apple.com/pl-pl/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" style="color:#e8a317;">Apple Safari</a></li>
+            </ul>
+            <div class="pp-info-box">
+                <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                <p>Wyłączenie niezbędnych plików cookies może uniemożliwić prawidłowe działanie strony. Wyłączenie cookies analitycznych i marketingowych nie ma wpływu na korzystanie z podstawowych funkcji serwisu.</p>
+            </div>
+        </section>
+
+        <!-- §8 Facebook -->
+        <section class="pp-section" id="media-spolecznosciowe">
+            <div class="pp-section-header">
+                <div class="pp-section-num">8</div>
+                <h2>Media społecznościowe – Facebook / Meta</h2>
+            </div>
+            <p>Na naszej stronie, w sekcji „Aktualności", osadzony jest widżet profilu Facebook. Widżet ten jest dostarczany przez firmę <strong>Meta Platforms Ireland Ltd.</strong>, 4 Grand Canal Square, Dublin 2, Irlandia.</p>
+            <p>Widżet ładowany jest <strong>wyłącznie po wyrażeniu przez Ciebie zgody na marketingowe pliki cookies</strong>. Bez tej zgody na stronie wyświetlany jest jedynie zastępczy komunikat z możliwością udzielenia zgody.</p>
+            <p>Po załadowaniu widżetu Meta może zbierać m.in. Twój adres IP, dane o przeglądarce i urządzeniu, a jeśli jesteś zalogowany/a na Facebooku — powiązać wizytę na naszej stronie z Twoim profilem. Zasady przetwarzania danych przez Meta opisane są w:</p>
+            <ul>
+                <li><a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer" style="color:#e8a317;">Polityce prywatności Meta</a></li>
+                <li><a href="https://www.facebook.com/policies/cookies/" target="_blank" rel="noopener noreferrer" style="color:#e8a317;">Polityce plików cookies Meta</a></li>
+            </ul>
+            <p>Prowadzimy wspólnie z Meta profil firmowy na Facebooku: <a href="https://www.facebook.com/profile.php?id=61573181715064" target="_blank" rel="noopener noreferrer" style="color:#e8a317;">MALKO BRUK na Facebooku</a>. W zakresie statystyk strony (Facebook Insights) jesteśmy współadministratorem danych z Meta Platforms.</p>
+        </section>
+
+        <!-- §9 Bezpieczeństwo -->
+        <section class="pp-section" id="bezpieczenstwo">
+            <div class="pp-section-header">
+                <div class="pp-section-num">9</div>
+                <h2>Bezpieczeństwo danych</h2>
+            </div>
+            <p>Stosujemy odpowiednie środki techniczne i organizacyjne zapewniające bezpieczeństwo przetwarzanych danych osobowych, w tym:</p>
+            <ul>
+                <li>Szyfrowanie transmisji danych za pomocą protokołu <strong>TLS/SSL (HTTPS)</strong>.</li>
+                <li>Ograniczenie dostępu do danych wyłącznie do upoważnionych osób.</li>
+                <li>Regularne tworzenie kopii zapasowych.</li>
+                <li>Stosowanie haseł i środków uwierzytelniania przy dostępie do systemów.</li>
+            </ul>
+            <p>Pomimo stosowania powyższych środków informujemy, że żaden system informatyczny nie może zagwarantować 100% bezpieczeństwa. W przypadku naruszenia ochrony danych osobowych, które może powodować wysokie ryzyko naruszenia Twoich praw i wolności, poinformujemy Cię o tym bez zbędnej zwłoki.</p>
+        </section>
+
+        <!-- §10 Zmiany -->
+        <section class="pp-section" id="zmiany">
+            <div class="pp-section-header">
+                <div class="pp-section-num">10</div>
+                <h2>Zmiany polityki prywatności</h2>
+            </div>
+            <p>Zastrzegamy sobie prawo do zmiany niniejszej Polityki Prywatności w przypadku zmiany przepisów prawa, zmiany sposobu przetwarzania danych osobowych lub wprowadzenia nowych usług. O wszelkich istotnych zmianach poinformujemy przez zamieszczenie zaktualizowanej wersji na niniejszej stronie wraz z datą aktualizacji.</p>
+            <p>Zachęcamy do regularnego zapoznawania się z treścią niniejszej Polityki. Korzystanie ze strony po wprowadzeniu zmian oznacza ich akceptację.</p>
+        </section>
+
+        <!-- §11 Kontakt -->
+        <section class="pp-section" id="kontakt-pp">
+            <div class="pp-section-header">
+                <div class="pp-section-num">11</div>
+                <h2>Kontakt w sprawie danych osobowych</h2>
+            </div>
+            <p>W przypadku pytań, wniosków lub uwag dotyczących niniejszej Polityki Prywatności lub sposobu przetwarzania Twoich danych osobowych skontaktuj się z nami:</p>
+            <div class="pp-contact-box">
+                <div class="pp-contact-item">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    <div>
+                        <p class="pp-contact-label">E-mail</p>
+                        <p><a href="mailto:malkobruk@gmail.com">malkobruk@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="pp-contact-item">
+                    <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                    <div>
+                        <p class="pp-contact-label">Telefon</p>
+                        <p><a href="tel:+48797506595">+48 797 506 595</a></p>
+                    </div>
+                </div>
+                <div class="pp-contact-item">
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    <div>
+                        <p class="pp-contact-label">Adres korespondencyjny</p>
+                        <p>MALKO BRUK S.C.<br>ul. Jankowicka 29M/1<br>43-100 Tychy</p>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.88rem; color: #888;">Staramy się odpowiadać na wszystkie wnioski bez zbędnej zwłoki, nie później niż w ciągu <strong style="color: #d4d4d4;">miesiąca</strong> od ich otrzymania. W przypadku skomplikowanych lub licznych wniosków termin ten może zostać przedłużony o kolejne dwa miesiące, o czym poinformujemy Cię z wyprzedzeniem.</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="pp-footer">
+        <p>&copy; 2026 MALKO BRUK S.C. &nbsp;|&nbsp; NIP: 6463008811 &nbsp;|&nbsp;
+            <a href="index.html">Strona główna</a> &nbsp;|&nbsp;
+            <a href="polityka-prywatnosci.html">Polityka Prywatności</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>
