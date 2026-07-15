@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Dynamic hero fade-out (Method 3)
-        if (heroBg) {
+        if (heroBg && window.innerWidth > 768) {
             // Fade-out starts at 85% at scroll = 0, and becomes sharp (100%) at scroll = 100
             const fadeValue = Math.min(100, 85 + (scrollY / 100) * 15);
             heroBg.style.setProperty('--hero-fade', `${fadeValue}%`);
