@@ -639,8 +639,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Auto-play — safe timer management (no leak on rapid mouseenter/leave)
         let timer = null;
+        let isIntersecting = false;
 
         function startAutoplay() {
+            if (!isIntersecting) return;
+            if (lightbox && lightbox.classList.contains('open')) return;
+            
             clearInterval(timer);
             timer = setInterval(() => {
                 goTo(current + 1);
@@ -652,19 +656,39 @@ document.addEventListener('DOMContentLoaded', () => {
             timer = null;
         }
 
-        startAutoplay();
-
         const root = carouselTrack.parentElement;
+
+        // Intersection Observer to run autoplay only when 100% visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                isIntersecting = entry.isIntersecting;
+                if (isIntersecting) {
+                    startAutoplay();
+                } else {
+                    stopAutoplay();
+                }
+            });
+        }, { threshold: 1.0 });
+
+        observer.observe(root);
+
+        // Visibility API to pause when user switches browser tabs
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAutoplay();
+            } else {
+                startAutoplay();
+            }
+        });
+
         root.addEventListener('mouseenter', stopAutoplay);
         root.addEventListener('mouseleave', () => {
-            if (lightbox && lightbox.classList.contains('open')) return;
             startAutoplay();
         });
 
         // Pause autoplay on touch (mobile)
         carouselTrack.addEventListener('touchstart', stopAutoplay, { passive: true, capture: true });
         carouselTrack.addEventListener('touchend', () => {
-            if (lightbox && lightbox.classList.contains('open')) return;
             setTimeout(startAutoplay, 1500);
         }, { passive: true });
 
