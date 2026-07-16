@@ -18,8 +18,8 @@
         }
     }
 
-    function saveConsent(analytical, marketing) {
-        const data = { necessary: true, analytical: !!analytical, marketing: !!marketing, timestamp: Date.now() };
+    function saveConsent(marketing) {
+        const data = { necessary: true, marketing: !!marketing, timestamp: Date.now() };
         try { localStorage.setItem(CONSENT_KEY, JSON.stringify(data)); } catch (e) {}
         consent = data;
     }
@@ -62,7 +62,7 @@
                 const acceptBtn = document.getElementById('fbPlaceholderAccept');
                 const settingsBtn = document.getElementById('fbPlaceholderSettings');
                 if (acceptBtn) acceptBtn.addEventListener('click', function () {
-                    saveConsent(consent ? consent.analytical : false, true);
+                    saveConsent(true);
                     applyConsent();
                     hideBanner();
                 });
@@ -92,11 +92,9 @@
     // --- Modal ---
     function openModal() {
         const overlay = document.getElementById('cookieModalOverlay');
-        const analyticalChk = document.getElementById('consentAnalytical');
         const marketingChk = document.getElementById('consentMarketing');
         if (!overlay) return;
         // Sync checkboxes to current state
-        if (analyticalChk) analyticalChk.checked = !!(consent && consent.analytical);
         if (marketingChk) marketingChk.checked = !!(consent && consent.marketing);
         overlay.removeAttribute('aria-hidden');
         overlay.classList.add('visible');
@@ -126,13 +124,13 @@
         const openSettingsBtn = document.getElementById('cookieOpenSettings');
 
         if (acceptAllBtn) acceptAllBtn.addEventListener('click', function () {
-            saveConsent(true, true);
+            saveConsent(true);
             hideBanner();
             applyConsent();
         });
 
         if (rejectAllBtn) rejectAllBtn.addEventListener('click', function () {
-            saveConsent(false, false);
+            saveConsent(false);
             hideBanner();
             applyConsent();
         });
@@ -151,16 +149,14 @@
         if (modalClose) modalClose.addEventListener('click', closeModal);
 
         if (modalReject) modalReject.addEventListener('click', function () {
-            saveConsent(false, false);
+            saveConsent(false);
             closeModal();
             applyConsent();
         });
 
         if (modalSave) modalSave.addEventListener('click', function () {
-            const analyticalChk = document.getElementById('consentAnalytical');
             const marketingChk = document.getElementById('consentMarketing');
             saveConsent(
-                analyticalChk ? analyticalChk.checked : false,
                 marketingChk ? marketingChk.checked : false
             );
             closeModal();
@@ -168,11 +164,9 @@
         });
 
         if (modalAcceptAll) modalAcceptAll.addEventListener('click', function () {
-            const analyticalChk = document.getElementById('consentAnalytical');
             const marketingChk = document.getElementById('consentMarketing');
-            if (analyticalChk) analyticalChk.checked = true;
             if (marketingChk) marketingChk.checked = true;
-            saveConsent(true, true);
+            saveConsent(true);
             closeModal();
             applyConsent();
         });

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polityka Prywatności | MALKO BRUK S.C.</title>
     <meta name="description" content="Polityka prywatności firmy MALKO BRUK S.C. - informacje o przetwarzaniu danych osobowych, plikach cookies i prawach użytkowników zgodnie z RODO.">
     <meta name="robots" content="noindex, follow">
@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=18">
 
     <style>
         :root {
@@ -424,7 +425,6 @@
                 <li><strong>Zawarcie i wykonanie umowy</strong> — podstawa: art. 6 ust. 1 lit. b RODO (niezbędność do wykonania umowy).</li>
                 <li><strong>Wystawianie faktur, rozliczenia podatkowe</strong> — podstawa: art. 6 ust. 1 lit. c RODO (obowiązek prawny).</li>
                 <li><strong>Dochodzenie lub obrona roszczeń</strong> — podstawa: art. 6 ust. 1 lit. f RODO (prawnie uzasadniony interes).</li>
-                <li><strong>Analityka ruchu na stronie (opcjonalne cookies)</strong> — podstawa: art. 6 ust. 1 lit. a RODO (zgoda użytkownika).</li>
                 <li><strong>Wyświetlanie treści z mediów społecznościowych (Facebook)</strong> — podstawa: art. 6 ust. 1 lit. a RODO (zgoda użytkownika).</li>
             </ul>
         </section>
@@ -475,7 +475,6 @@
                 <li><strong>Dane z korespondencji i zapytań ofertowych</strong> — przez czas niezbędny do obsługi zapytania, a następnie do czasu upływu ewentualnych roszczeń (co do zasady 3 lata od dnia zakończenia korespondencji).</li>
                 <li><strong>Dane dotyczące zawartych umów</strong> — przez okres 5 lat od końca roku podatkowego, w którym wykonano usługę (obowiązki wynikające z prawa podatkowego).</li>
                 <li><strong>Dane w fakturach</strong> — 5 lat od końca roku podatkowego zgodnie z art. 70 § 1 Ordynacji podatkowej.</li>
-                <li><strong>Dane z plików cookies analitycznych</strong> — zgodnie z polityką dostawcy narzędzia (zazwyczaj do 2 lat od ostatniej aktywności); zgoda jest przechowywana w localStorage przeglądarki do momentu jej cofnięcia lub wyczyszczenia danych przeglądarki.</li>
                 <li><strong>Dane z plików cookies marketingowych (Facebook)</strong> — zgodnie z polityką Meta Platforms; szczegóły dostępne w Centrum prywatności Meta.</li>
             </ul>
         </section>
@@ -506,7 +505,7 @@
                 <div class="pp-section-num">7</div>
                 <h2>Pliki cookies</h2>
             </div>
-            <p>Nasza strona internetowa (<strong>malko-bruk.pl</strong>) używa plików cookies (ciasteczek) — małych plików tekstowych przechowywanych na Twoim urządzeniu — w celu zapewnienia prawidłowego działania strony, analizy ruchu oraz (po wyrażeniu zgody) wyświetlania treści społecznościowych.</p>
+            <p>Nasza strona internetowa (<strong>malko-bruk.pl</strong>) używa plików cookies (ciasteczek) — małych plików tekstowych przechowywanych na Twoim urządzeniu — w celu zapewnienia prawidłowego działania strony oraz (po wyrażeniu zgody) wyświetlania treści społecznościowych.</p>
 
             <h3>Rodzaje używanych plików cookies</h3>
             <table class="pp-cookie-table" role="table" aria-label="Tabela plików cookies">
@@ -526,13 +525,6 @@
                         <td>Przechowuje Twój wybór dotyczący zgody na cookies (localStorage)</td>
                         <td>Do wyczyszczenia przeglądarki</td>
                         <td>Nie wymagana</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Analityczne</strong></td>
-                        <td>Narzędzia analityczne (opcjonalnie)</td>
-                        <td>Analiza ruchu na stronie, zbieranie statystyk anonimowych (np. Google Analytics)</td>
-                        <td>Do 2 lat</td>
-                        <td>Wymagana</td>
                     </tr>
                     <tr>
                         <td><strong>Marketingowe</strong></td>
@@ -555,7 +547,7 @@
             </ul>
             <div class="pp-info-box">
                 <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-                <p>Wyłączenie niezbędnych plików cookies może uniemożliwić prawidłowe działanie strony. Wyłączenie cookies analitycznych i marketingowych nie ma wpływu na korzystanie z podstawowych funkcji serwisu.</p>
+                <p>Wyłączenie niezbędnych plików cookies może uniemożliwić prawidłowe działanie strony. Wyłączenie marketingowych plików cookies nie ma wpływu na korzystanie z podstawowych funkcji serwisu.</p>
             </div>
         </section>
 
@@ -644,6 +636,81 @@
         </p>
     </footer>
 
-</body>
+    <!-- ===== COOKIE CONSENT SYSTEM ===== -->
 
+    <!-- Baner cookies -->
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informacja o plikach cookies" aria-live="polite" aria-hidden="true">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-icon"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
+            <div class="cookie-banner-text">
+                <p><strong>Ta strona używa plików cookies.</strong> Niezbędne pliki cookie zapewniają prawidłowe działanie strony. Za Twoją zgodą możemy używać marketingowych plików cookies (np. widgetu Facebooka), aby ulepszyć prezentowane treści. Szczegółowe informacje znajdziesz w naszej <a href="polityka-prywatnosci.html" style="color:#e8a317; text-decoration:underline;">Polityce Prywatności</a>.</p>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn cookie-btn-accept" id="cookieAcceptAll">Zaakceptuj wszystkie</button>
+                <button class="cookie-btn cookie-btn-reject" id="cookieRejectAll">Odrzuć opcjonalne</button>
+                <button class="cookie-btn cookie-btn-settings" id="cookieOpenSettings">Ustawienia</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal ustawień szczegółowych -->
+    <div class="cookie-modal-overlay" id="cookieModalOverlay" role="dialog" aria-label="Ustawienia plików cookies" aria-modal="true" aria-hidden="true">
+        <div class="cookie-modal">
+            <div class="cookie-modal-header">
+                <div class="cookie-modal-title-group">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    <h2>Ustawienia Plików Cookies</h2>
+                </div>
+                <button class="cookie-modal-close" id="cookieModalClose" aria-label="Zamknij ustawienia cookies">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="cookie-modal-body">
+                <p class="cookie-modal-intro">Zarządzaj swoimi preferencjami dotyczącymi plików cookies. Możesz w każdej chwili zmienić swoje ustawienia, klikając ikonę tarczy w lewym dolnym rogu ekranu.</p>
+
+                <!-- Niezbędne -->
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <div class="cookie-category-info">
+                            <h3>Niezbędne</h3>
+                            <p>Wymagane do prawidłowego działania strony. Nie mogą być wyłączone.</p>
+                        </div>
+                        <div class="cookie-switch-wrapper">
+                            <span class="cookie-switch-label">Zawsze włączone</span>
+                            <div class="cookie-switch cookie-switch-locked" aria-disabled="true">
+                                <div class="cookie-switch-knob"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marketingowe -->
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <div class="cookie-category-info">
+                            <h3>Marketingowe</h3>
+                            <p>Umożliwiają wyświetlanie treści z mediów społecznościowych (np. widżet profilu Facebook / Meta).</p>
+                        </div>
+                        <label class="cookie-switch" role="switch" aria-label="Ciasteczka marketingowe">
+                            <input type="checkbox" id="consentMarketing" class="cookie-switch-input">
+                            <div class="cookie-switch-knob"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="cookie-modal-footer">
+                <button class="cookie-btn cookie-btn-reject" id="cookieModalReject">Odrzuć opcjonalne</button>
+                <button class="cookie-btn cookie-btn-save" id="cookieSaveSettings">Zapisz wybrane</button>
+                <button class="cookie-btn cookie-btn-accept" id="cookieModalAcceptAll">Zaakceptuj wszystkie</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pływający przycisk ustawień cookies -->
+    <button class="cookie-float-btn" id="cookieFloatBtn" aria-label="Zarządzaj ustawieniami cookies">
+        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+    </button>
+
+    <script src="script.js?v=8" defer></script>
+</body>
 </html>

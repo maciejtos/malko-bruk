@@ -11,8 +11,8 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # ---- 2. Wymuszenie wersji bez "www" (opcjonalnie — wybrać jedną z wersji) ----
 # Jeśli chcesz przekierować www → bez www, odkomentuj poniższe linie:
-# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-# RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
 # Jeśli chcesz przekierować bez www → www, odkomentuj poniższe linie:
 # RewriteCond %{HTTP_HOST} !^www\. [NC]
